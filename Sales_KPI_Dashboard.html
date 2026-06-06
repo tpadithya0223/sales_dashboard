@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sales KPI Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f6f9;margin:20px}
+h1{text-align:center}
+.cards{display:flex;gap:15px;margin-bottom:20px}
+.card{flex:1;background:white;padding:20px;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,.1);text-align:center}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.chart{background:white;padding:15px;border-radius:10px}
+</style>
+</head>
+<body>
+<h1>Sales KPI Dashboard</h1>
+<div class="cards">
+<div class="card"><h3>Total Sales</h3><h2>₹12.5M</h2></div>
+<div class="card"><h3>Total Profit</h3><h2>₹2.1M</h2></div>
+<div class="card"><h3>Total Orders</h3><h2>9,994</h2></div>
+<div class="card"><h3>Total Quantity</h3><h2>37,873</h2></div>
+</div>
+
+<div class="grid">
+<div class="chart"><canvas id="salesTrend"></canvas></div>
+<div class="chart"><canvas id="regionSales"></canvas></div>
+<div class="chart"><canvas id="categorySales"></canvas></div>
+<div class="chart"><canvas id="topProducts"></canvas></div>
+</div>
+
+<script>
+new Chart(document.getElementById('salesTrend'),{
+type:'line',
+data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],
+datasets:[{label:'Sales',data:[120,190,300,250,400,500]}]}
+});
+
+new Chart(document.getElementById('regionSales'),{
+type:'bar',
+data:{labels:['East','West','South','Central'],
+datasets:[{label:'Sales',data:[400,350,300,250]}]}
+});
+
+new Chart(document.getElementById('categorySales'),{
+type:'doughnut',
+data:{labels:['Technology','Furniture','Office Supplies'],
+datasets:[{data:[45,30,25]}]}
+});
+
+new Chart(document.getElementById('topProducts'),{
+type:'bar',
+data:{labels:['P1','P2','P3','P4','P5'],
+datasets:[{label:'Sales',data:[90,80,70,60,50]}]}
+});
+</script>
+</body>
+</html>
